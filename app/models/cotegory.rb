@@ -1,0 +1,2 @@
+class Cotegory < ApplicationRecord
+end

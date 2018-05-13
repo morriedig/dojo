@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :collect_blogs
   has_many :collecting_blogs, through: :collect_blogs, source: :blog
 
+  def admin?
+    return self.role == "admin"
+  end
+
 end

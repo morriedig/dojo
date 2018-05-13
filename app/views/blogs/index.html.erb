@@ -1,5 +1,6 @@
-<%= link_to "MY Profile", user_path(current_user)%>
-
+<% if current_user%>
+  <%= link_to "MY Profile", user_path(current_user)%>
+<% end %>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1>Dojo Forum</h1>

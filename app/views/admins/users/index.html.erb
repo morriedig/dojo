@@ -1,0 +1,6 @@
+<h1> THis is admins/user index</h1>
+
+<% @users.each do |user|%>
+  <%= user.email%>
+  <%= link_to user.role, admins_user_path(user), method: :patch %> <br>
+<% end %>

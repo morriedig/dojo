@@ -1,0 +1,6 @@
+<h1>This is admins root</h1>
+<% @blogs.each do |blog| %>
+<ul>
+  <%= render :partial => "shared/blog_list", :locals => {blog: blog }%>
+</ul>
+<% end %>

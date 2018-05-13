@@ -1,0 +1,12 @@
+<h1> this is blog show page</h1>
+
+<%= form_for [@blog, Comment.new] do |f| %>
+  <%= f.text_field :commenter%>
+  <%= f.submit "create"%>
+<% end %>
+
+<ul>
+  <% @blog.comments.each do |comment|%>
+    <%= render :partial => 'shared/comment_list', :locals => { comment: comment }%>
+  <% end %>
+</ul>

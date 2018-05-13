@@ -2,5 +2,7 @@
   <%= blog.title %>
   <%= link_to blog.title, blog_path(blog)%>
   <%= link_to "Collect", collect_blog_path(blog), method: :post%>
-  
+  <% if current_user.admin? %>
+    <%= link_to "Delete", blog_path(blog), method: :delete %>
+  <% end %>
 </li>

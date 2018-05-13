@@ -1,0 +1,13 @@
+<h1>THis is admins category index</h1>
+
+<%= form_for :category do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit "Create"%>
+<% end %>
+
+<% @categories.each do |category| %>
+  <%= category.title%>
+  <%= link_to "Delete", admins_category_path(category), method: :delete %>
+
+   <br>
+<% end %>

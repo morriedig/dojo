@@ -1,0 +1,2 @@
+class CollectBlogsController < ApplicationController
+end

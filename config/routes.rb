@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :blogs do
     resources :comments
+
+    member do 
+      post :collect
+      post :uncollect
+    end
+
   end
   
   #delete comment

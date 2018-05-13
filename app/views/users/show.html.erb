@@ -1,0 +1,17 @@
+<h1>This is user show page </h1>
+<%= current_user.email%> <br>
+
+<% current_user.blogs.each do |blog| %>
+  <%= blog.title%> <br>
+<% end %>
+
+<% current_user.comments.each do |comment|%>
+  <%= comment.commenter %> <br>
+<% end %>
+
+<% current_user.collecting_blogs.each do |blog|%>
+  <ul>
+    <%= render :partial => 'shared/blog_list', :locals => {blog: blog }%>
+  </ul>
+<% end %>
+

@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.create(blog_params)
+    @blog = current_user.blogs.create(blog_params)
     params["blog"]["category_id"].each do |sort|
       @blog.sorts.create(:category_id => sort.to_i )
     end
@@ -27,6 +27,12 @@ class BlogsController < ApplicationController
 
   def update
 
+  end
+
+  def collect
+    blog = Blog.find(params[:id])
+    @collect_blog = CollectBlog.new(user: current_user, blog: blog)
+    @collect_blog.save
   end
 
   private

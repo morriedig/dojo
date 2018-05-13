@@ -2,7 +2,7 @@ class Blog < ApplicationRecord
 
   attr :category_id
 
-  # belongs_to :user
+  belongs_to :user
   has_many :sorts, dependent: :destroy
   has_many  :categories, through: :sorts
   has_many :collect_blogs

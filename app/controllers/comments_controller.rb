@@ -16,8 +16,6 @@ class CommentsController < ApplicationController
     redirect_to blog_path(@comment.blog)
   end
   
-
-
   private
 
   def comment_params

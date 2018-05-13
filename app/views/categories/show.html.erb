@@ -1,0 +1,11 @@
+<h1>this is category show page</h1>
+
+<p>
+  <%= @category.title%>
+</p>
+
+<ul>
+  <% @blogs.each do |blog|%>
+    <%= render :partials => 'shared/blog_list', :locals => {blog: blog }  %>
+  <% end %>
+</ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502145405) do
+ActiveRecord::Schema.define(version: 20180512170855) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 20180502145405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "collect_blogs", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_collect_blogs_on_blog_id"
+    t.index ["user_id"], name: "index_collect_blogs_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -51,14 +66,13 @@ ActiveRecord::Schema.define(version: 20180502145405) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string "collect_blog"
-    t.integer "user_id"
+  create_table "sorts", force: :cascade do |t|
+    t.integer "category_id"
     t.integer "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["blog_id"], name: "index_models_on_blog_id"
-    t.index ["user_id"], name: "index_models_on_user_id"
+    t.index ["blog_id"], name: "index_sorts_on_blog_id"
+    t.index ["category_id"], name: "index_sorts_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|

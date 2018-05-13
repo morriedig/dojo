@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.destroy_all
+
+category_list = [
+  { title: 'Python' },
+  { title: 'Ruby' },
+  { title: 'Java' }
+].each do |category|
+  Category.find_or_create_by(title: category[:title])
+end

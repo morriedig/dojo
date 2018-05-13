@@ -1,4 +1,4 @@
-class Model < ApplicationRecord
+class CollectBlog < ApplicationRecord
   belongs_to :user
   belongs_to :blog
 end

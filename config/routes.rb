@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  #delete comment
+  resources :comments, only: :destroy
+
   resources :users do
     resources :comments
     member do
